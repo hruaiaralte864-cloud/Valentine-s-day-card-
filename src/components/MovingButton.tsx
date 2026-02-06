@@ -25,10 +25,22 @@ const MovingButton = ({ children }: { children: React.ReactNode }) => {
                     let nextY = prev.y + velocity.vy;
 
                     // Aggressively expanded boundaries to hit the visible card borders
-                    const limitRight = 170;
-                    const limitLeft = 280; // Negative
-                    const limitYTop = -610; // Adjusted to -610px as requested
-                    const limitYBottom = 80;
+                    // Dynamic boundaries based on screen size
+                    const isMobile = window.innerWidth < 768; // Mobile breakpoint
+
+                    // Desktop limits (Original)
+                    let limitRight = 170;
+                    let limitLeft = 280;
+                    let limitYTop = -610;
+                    let limitYBottom = 80;
+
+                    // Mobile limits (Much stricter to prevent disappearing)
+                    if (isMobile) {
+                        limitRight = window.innerWidth / 2 - 60; // Keep within screen width
+                        limitLeft = window.innerWidth / 2 - 60;
+                        limitYTop = -200; // Don't fly too high up
+                        limitYBottom = 50;
+                    }
 
                     let newVx = velocity.vx;
                     let newVy = velocity.vy;

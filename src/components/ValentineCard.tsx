@@ -59,26 +59,26 @@ const ValentineCard = () => {
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9 }}
-                        className="text-center space-y-10 max-w-lg w-full bg-white p-10 md:p-14 rounded-[3rem] shadow-[0_20px_50px_rgba(255,182,193,0.4)] border-4 border-white/50 relative"
+                        className="text-center space-y-6 md:space-y-10 max-w-lg w-full bg-white p-6 md:p-14 rounded-[2rem] md:rounded-[3rem] shadow-[0_20px_50px_rgba(255,182,193,0.4)] border-4 border-white/50 relative"
                     >
                         <div className="relative inline-block">
                             <motion.img
                                 src={`${import.meta.env.BASE_URL}assets/bear-ask.gif`}
                                 alt="Will You Be My Valentine Bear"
-                                className="w-48 h-48 mx-auto mb-4 rounded-2xl"
+                                className="w-32 h-32 md:w-48 md:h-48 mx-auto mb-4 rounded-2xl"
                                 animate={{ scale: [1, 1.05, 1] }}
                                 transition={{ duration: 2, repeat: Infinity }}
                             />
                         </div>
 
-                        <h1 className="text-5xl md:text-6xl text-[var(--foreground)] font-bubble leading-[1.2] tracking-wide">
+                        <h1 className="text-4xl md:text-6xl text-[var(--foreground)] font-bubble leading-[1.2] tracking-wide">
                             Will you be my <br />
                             <span className="text-[var(--primary)] relative">
                                 Valentine?
                             </span>
                         </h1>
 
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-12 pt-4 min-h-[120px]">
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-12 pt-4 min-h-[120px]">
                             <motion.button
                                 id="yes-button"
                                 onClick={handleYes}
@@ -101,7 +101,7 @@ const ValentineCard = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, y: -50 }}
-                        className="text-center space-y-6 max-w-lg w-full bg-white p-10 md:p-14 rounded-[3rem] shadow-[0_20px_50px_rgba(255,182,193,0.4)] border-4 border-white/50 relative overflow-hidden"
+                        className="text-center space-y-4 md:space-y-6 max-w-lg w-full bg-white p-6 md:p-14 rounded-[2rem] md:rounded-[3rem] shadow-[0_20px_50px_rgba(255,182,193,0.4)] border-4 border-white/50 relative overflow-hidden"
                     >
                         {/* Confetti Canvas Scoped to Card */}
                         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />
@@ -114,7 +114,7 @@ const ValentineCard = () => {
                             <motion.img
                                 src={`${import.meta.env.BASE_URL}assets/bear-kiss.gif`}
                                 alt="Kissing Cute Bears"
-                                className="w-56 h-56 mx-auto rounded-2xl"
+                                className="w-40 h-40 md:w-56 md:h-56 mx-auto rounded-2xl"
                                 animate={{
                                     scale: [1, 1.05, 1],
                                 }}
@@ -123,10 +123,10 @@ const ValentineCard = () => {
                         </div>
 
                         <div className="space-y-4 relative z-10">
-                            <h1 className="text-4xl md:text-5xl text-[var(--primary)] font-bubble leading-tight">
+                            <h1 className="text-3xl md:text-5xl text-[var(--primary)] font-bubble leading-tight">
                                 Happy Valentine's <br /> Day!
                             </h1>
-                            <p className="text-lg text-gray-600 font-medium font-['Fredoka'] max-w-md mx-auto leading-relaxed">
+                            <p className="text-sm md:text-lg text-gray-600 font-medium font-['Fredoka'] max-w-md mx-auto leading-relaxed">
                                 Every second with you is a celebration. You are the spark that makes my world so much brighter. Thank you for being my favorite person and my greatest adventure. <br /> Here’s to us today and always!
                             </p>
 
