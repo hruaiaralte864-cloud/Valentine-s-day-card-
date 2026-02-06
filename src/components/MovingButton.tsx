@@ -110,9 +110,10 @@ const MovingButton = ({ children }: { children: React.ReactNode }) => {
             let newVx = -Math.cos(angle) * boost;
             let newVy = -Math.sin(angle) * boost;
 
-            // Check if immediate move would hit wall and invert if so (reactive bounce)
-            const nextX = position.x + newVx * 5; // Look ahead
-            if (nextX > 170 || nextX < -280) newVx = -newVx;
+            // Check if immediate move would excessive (simple check, physics loop handles strict bounds)
+            // We remove the hardcoded check here because the physics loop running on the next frame 
+            // will catch "nextX" and bounce it off the correct dynamic wall anyway.
+            // This prevents fighting between the flee logic and the dynamic wall logic.
 
             setVelocity({
                 vx: newVx,

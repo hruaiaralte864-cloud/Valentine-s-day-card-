@@ -56,6 +56,7 @@ const ValentineCard = () => {
                 {step === 'question' && (
                     <motion.div
                         key="question"
+                        id="card-container"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9 }}
