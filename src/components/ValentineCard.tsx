@@ -63,7 +63,7 @@ const ValentineCard = () => {
                     >
                         <div className="relative inline-block">
                             <motion.img
-                                src="/assets/bear-ask.gif"
+                                src={`${import.meta.env.BASE_URL}assets/bear-ask.gif`}
                                 alt="Will You Be My Valentine Bear"
                                 className="w-48 h-48 mx-auto mb-4 rounded-2xl"
                                 animate={{ scale: [1, 1.05, 1] }}
@@ -112,7 +112,7 @@ const ValentineCard = () => {
 
                         <div className="relative inline-block z-10 leading-none">
                             <motion.img
-                                src="/assets/bear-kiss.gif"
+                                src={`${import.meta.env.BASE_URL}assets/bear-kiss.gif`}
                                 alt="Kissing Cute Bears"
                                 className="w-56 h-56 mx-auto rounded-2xl"
                                 animate={{
@@ -132,7 +132,7 @@ const ValentineCard = () => {
 
                             <div className="flex items-center justify-center gap-2 mt-6 w-full">
                                 <motion.img
-                                    src="/assets/bear-duck.gif"
+                                    src={`${import.meta.env.BASE_URL}assets/bear-duck.gif`}
                                     alt="Bear riding a duck"
                                     className="w-16 rounded-xl opacity-90 hover:opacity-100 transition-opacity transform -scale-x-100"
                                     initial={{ opacity: 0, scale: 0.8 }}
@@ -148,7 +148,7 @@ const ValentineCard = () => {
                                 </button>
 
                                 <motion.img
-                                    src="/assets/bear-duck.gif"
+                                    src={`${import.meta.env.BASE_URL}assets/bear-duck.gif`}
                                     alt="Bear riding a duck"
                                     className="w-16 rounded-xl opacity-90 hover:opacity-100 transition-opacity"
                                     initial={{ opacity: 0, scale: 0.8 }}
