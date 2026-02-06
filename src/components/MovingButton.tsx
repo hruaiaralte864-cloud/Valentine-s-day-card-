@@ -24,39 +24,42 @@ const MovingButton = ({ children }: { children: React.ReactNode }) => {
                     let nextX = prev.x + velocity.vx;
                     let nextY = prev.y + velocity.vy;
 
-                    // Aggressively expanded boundaries to hit the visible card borders
-                    // Dynamic boundaries based on screen size
-                    const isMobile = window.innerWidth < 768; // Mobile breakpoint
+                    // Dynamic Boundary Calculation
+                    const card = document.getElementById('card-container');
+                    let minX = -100, maxX = 100, minY = -100, maxY = 50; // Fallbacks
 
-                    // Desktop limits (Original)
-                    let limitRight = 170;
-                    let limitLeft = 280;
-                    let limitYTop = -610;
-                    let limitYBottom = 80;
+                    if (card && buttonRef.current) {
+                        const cardRect = card.getBoundingClientRect();
+                        const btnRect = buttonRef.current.getBoundingClientRect();
 
-                    // Mobile limits (Much stricter to prevent disappearing)
-                    if (isMobile) {
-                        limitRight = window.innerWidth / 2 - 60; // Keep within screen width
-                        limitLeft = window.innerWidth / 2 - 60;
-                        limitYTop = -200; // Don't fly too high up
-                        limitYBottom = 50;
+                        // Calculate the button's "original" position (where x=0, y=0 refers to)
+                        const originLeft = btnRect.left - prev.x;
+                        const originTop = btnRect.top - prev.y;
+
+                        const padding = 20; // Keep it slightly inside the border
+
+                        // Calculate limits relative to the origin
+                        minX = (cardRect.left + padding) - originLeft;
+                        maxX = (cardRect.right - padding - btnRect.width) - originLeft;
+                        minY = (cardRect.top + padding) - originTop;
+                        maxY = (cardRect.bottom - padding - btnRect.height) - originTop;
                     }
 
                     let newVx = velocity.vx;
                     let newVy = velocity.vy;
 
-                    // Bounce off X walls (Asymmetric)
-                    if (nextX < -limitLeft || nextX > limitRight) {
-                        newVx = -velocity.vx * 0.95;
-                        // Clamp to bounds
-                        if (nextX < -limitLeft) nextX = -limitLeft + 2;
-                        if (nextX > limitRight) nextX = limitRight - 2;
+                    // Bounce off X walls
+                    if (nextX < minX || nextX > maxX) {
+                        newVx = -velocity.vx * 0.9; // Add slight damping
+                        if (nextX < minX) nextX = minX + 2;
+                        if (nextX > maxX) nextX = maxX - 2;
                     }
 
                     // Bounce off Y walls
-                    if (nextY < limitYTop || nextY > limitYBottom) {
-                        newVy = -velocity.vy * 0.95;
-                        nextY = nextY < limitYTop ? limitYTop + 2 : limitYBottom - 2;
+                    if (nextY < minY || nextY > maxY) {
+                        newVy = -velocity.vy * 0.9;
+                        if (nextY < minY) nextY = minY + 2;
+                        if (nextY > maxY) nextY = maxY - 2;
                     }
 
                     // Occasionally update velocity state if changed
