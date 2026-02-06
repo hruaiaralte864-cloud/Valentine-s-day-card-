@@ -178,14 +178,16 @@ const ValentineCard = () => {
                             className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <iframe
+                            <video
                                 width="100%"
                                 height="100%"
-                                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                                src={`${import.meta.env.BASE_URL}assets/rickroll.mp4`}
                                 title="Rick Roll"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
+                                autoPlay
+                                loop
+                                controls
+                                playsInline
+                                className="object-cover"
                             />
                             <button
                                 onClick={() => setShowVideo(false)}
