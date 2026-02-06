@@ -1,0 +1,75 @@
+
+> valentine-2026@0.0.0 lint
+> eslint .
+
+
+C:\Users\hruai\Downloads\ezgif-split\valentine-2026\src\components\MovingButton.tsx
+   99:17  error    'newVy' is never reassigned. Use 'const' instead                                                                    prefer-const
+  115:8   warning  React Hook useEffect has a missing dependency: 'handleMouseMove'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\hruai\Downloads\ezgif-split\valentine-2026\src\components\ValentineCard.tsx
+    1:20  error  'useRef' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+  208:38  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\hruai\Downloads\ezgif-split\valentine-2026\src\components\ValentineCard.tsx:208:38
+  206 |                         className="absolute text-[var(--primary)]/10"
+  207 |                         style={{
+> 208 |                             left: `${Math.random() * 100}%`,
+      |                                      ^^^^^^^^^^^^^ Cannot call impure function
+  209 |                             top: `${Math.random() * 100}%`,
+  210 |                         }}
+  211 |                         initial={{  react-hooks/purity
+  209:37  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\hruai\Downloads\ezgif-split\valentine-2026\src\components\ValentineCard.tsx:209:37
+  207 |                         style={{
+  208 |                             left: `${Math.random() * 100}%`,
+> 209 |                             top: `${Math.random() * 100}%`,
+      |                                     ^^^^^^^^^^^^^ Cannot call impure function
+  210 |                         }}
+  211 |                         initial={{
+  212 |                             scale: Math.random() * 1 + 0.5,             react-hooks/purity
+  212:36  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\hruai\Downloads\ezgif-split\valentine-2026\src\components\ValentineCard.tsx:212:36
+  210 |                         }}
+  211 |                         initial={{
+> 212 |                             scale: Math.random() * 1 + 0.5,
+      |                                    ^^^^^^^^^^^^^ Cannot call impure function
+  213 |                             opacity: 0
+  214 |                         }}
+  215 |                         animate={{                                                                   react-hooks/purity
+  221:43  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\hruai\Downloads\ezgif-split\valentine-2026\src\components\ValentineCard.tsx:221:43
+  219 |                         }}
+  220 |                         transition={{
+> 221 |                             duration: 5 + Math.random() * 10,
+      |                                           ^^^^^^^^^^^^^ Cannot call impure function
+  222 |                             repeat: Infinity,
+  223 |                             ease: "linear",
+  224 |                             delay: Math.random() * 5             react-hooks/purity
+  224:36  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\hruai\Downloads\ezgif-split\valentine-2026\src\components\ValentineCard.tsx:224:36
+  222 |                             repeat: Infinity,
+  223 |                             ease: "linear",
+> 224 |                             delay: Math.random() * 5
+      |                                    ^^^^^^^^^^^^^ Cannot call impure function
+  225 |                         }}
+  226 |                     >
+  227 |                         <Heart fill="currentColor" className="w-8 h-8" />                        react-hooks/purity
+
+Ô£û 8 problems (7 errors, 1 warning)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+

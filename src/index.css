@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@import "tailwindcss";
+
+:root {
+  --background: #fdf2f4;
+  /* Softer Pastel Pink */
+  --foreground: #5c1b22;
+  /* Deep Wine / Brownish Red */
+  --primary: #ff4d6d;
+  /* Vibrant Pink */
+  --primary-hover: #ff758f;
+  --secondary: #ffccd5;
+  /* Soft Pink Accents */
+  --accent: #c9184a;
+  /* Deep Red */
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  margin: 0;
+  font-family: var(--font-sans);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+}
+
+.text-romantic {
+  font-family: var(--font-serif);
+}
+
+/* Custom Scrollbar for hidden but interactive areas */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.font-bubble {
+  font-family: "Titan One", cursive !important;
+}
